@@ -92,7 +92,7 @@ public class MyState : MonoBehaviour            // The AI
 
             other.GetComponent<BallGrab>().thrown = false;
             myRB.useGravity = false;
-            
+            myRB.drag = 10;
             
         }
 
@@ -106,7 +106,7 @@ public class MyState : MonoBehaviour            // The AI
         myBall.transform.parent = null;
 
         var myRB = myBall.GetComponent<Rigidbody>();
-
+        myRB.drag = 0;
         myRB.useGravity = true;
 
     }

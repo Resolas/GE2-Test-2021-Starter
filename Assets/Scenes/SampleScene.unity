@@ -571,7 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCam: {fileID: 963194227}
-  throwStrength: 10
+  throwStrength: 20
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0

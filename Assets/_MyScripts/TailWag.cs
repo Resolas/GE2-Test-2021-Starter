@@ -10,41 +10,29 @@ public class TailWag : MonoBehaviour
     public float wagSpeed = 100f;
 
     Quaternion myRotation;
-    
+    private float curAngle = 0;
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-        WagTail();
+    //    WagTail();            // Forget it :L
 
     }
 
     void WagTail()
     {
-
+        curAngle++;
         float getAccel = GetBoid.acceleration.magnitude;
+        float angle = Mathf.Sin(curAngle * Mathf.PI)/180;
 
-
-        myRotation = new Quaternion(0,Mathf.Sin(Time.time) * wagSpeed,0,0);
+        myRotation = new Quaternion(0,angle + curAngle,0,0);
 
 
         transform.rotation = myRotation;
 
 
-   /*
-        public float wagSpeed;
-        private float wait;
-
-        private void Update()
-        {
-            float angle = Mathf.Sin(Time.time) * 70;
-
-            this.transform.rotation = Quaternion.Euler(0, angle, 0);
-
-            Debug.Log(angle);
-        }
-    */
+   
 
 }
 }
