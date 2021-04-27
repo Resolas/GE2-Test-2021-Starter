@@ -19,13 +19,14 @@ public class Boid : MonoBehaviour
     public float maxSpeed = 5.0f;
     public float maxForce = 10.0f;
 
-    [Header("Lock Axis")]
-    public bool yAxis;
+//    [Header("Lock Axis")]
+//    public bool yAxis;
+//    public Vector3 myVector;
 
     // Use this for initialization
     void Start()
     {
-    //    myVector = GetComponent<Vector3>();
+     //   myVector = GetComponent<Vector3>();
 
         SteeringBehaviour[] behaviours = GetComponents<SteeringBehaviour>();
 
@@ -91,7 +92,7 @@ public class Boid : MonoBehaviour
     }
 
 
- //   Vector3 myVector;
+    public GameObject targetGameObject;
 
     // Update is called once per frame
     void Update()
@@ -112,13 +113,14 @@ public class Boid : MonoBehaviour
             velocity *= (1.0f - (damping * Time.deltaTime));
         }
 
-        
-        if (yAxis == true)
+        Vector3 targetPos;
+        if (targetGameObject != null)
         {
-
-            myVector.y = 0;
-
+            targetPos = new Vector3(targetGameObject.transform.position.x, 0f, targetGameObject.transform.position.z);
         }
+
+        
+        
         
     }
 

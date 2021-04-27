@@ -9,23 +9,44 @@ public class MyState : MonoBehaviour            // The AI
     {
         seekScr = GetComponent<Seek>();
         arriveScr = GetComponent<Arrive>();
+
+        StartCoroutine(RunAI(0.5f));
+
     }
 
-    // Update is called once per frame
-    void Update()
+    
+
+
+    IEnumerator RunAI(float waitTime)
     {
-        
+
+        while (true)
+        {
+
+            yield return new WaitForSeconds(waitTime);
+
+            AIDecisionTree();
+
+            Debug.Log("TEST");
+
+        }
+
+
 
     }
 
-    int state = 0;
 
-    Seek seekScr;
-    Arrive arriveScr;
+   // int state = 0;
 
+   public Seek seekScr;
+   public Arrive arriveScr;
 
+   public GameObject myBall;
+   public GameObject myPlayer;
 
-    void RunStateMachine()
+    public Transform holdPoint;
+
+    void ChangeState(int state)
     {
 
 
@@ -33,26 +54,75 @@ public class MyState : MonoBehaviour            // The AI
         {
 
 
-            case 0:
+            case 0:         // go to ball
 
-                
-
-                break;
-
-
-            case 1:
+                seekScr.enabled = true;
+                arriveScr.enabled = false;
 
                 break;
 
-            case 2:
+
+            case 1:         // go to player
+
+                seekScr.enabled = false;
+                arriveScr.enabled = true;
 
                 break;
+
+            
 
 
         }
 
     }
 
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.CompareTag("Ball") && myBall.GetComponent<BallGrab>().thrown)
+        {
+
+            other.transform.parent = holdPoint;
+            other.transform.position = holdPoint.transform.position;
+
+            other.GetComponent<BallGrab>().thrown = false;
+
+        }
+
+
+    }
+
+
+    public bool AIOn = true;
+
+    void AIDecisionTree()
+    {
+
+
+        if (AIOn)
+        {
+
+            if (myBall.GetComponent<BallGrab>().thrown && myBall.transform.parent == null)  // chase ball
+            {
+
+                //  myBall.GetComponent<BallGrab>().thrown = false;
+
+                ChangeState(0);
+
+            }
+            else    // go to player
+            {
+
+                ChangeState(1);
+
+            }
+
+        }
+
+
+    }
 
 
 }

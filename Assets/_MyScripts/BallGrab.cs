@@ -18,6 +18,9 @@ public class BallGrab : MonoBehaviour
     public Rigidbody myRB;
     public float mytime = 1;
 
+
+    public bool thrown = false;
+
     // Update is called once per frame
     void Update()
     {

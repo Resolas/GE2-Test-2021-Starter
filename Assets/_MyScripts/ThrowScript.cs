@@ -48,8 +48,9 @@ public class ThrowScript : MonoBehaviour
                 {
 
                     myBall.selected = false;
+                    myBall.thrown = true;
                     myBallRB.velocity = transform.forward * throwStrength;
-
+                    myBall.transform.parent = null;
                 }
                 else if (myBall.selected == false)
                 {
