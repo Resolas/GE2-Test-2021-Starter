@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 1503941573}
   - component: {fileID: 1503941574}
   - component: {fileID: 1503941575}
+  - component: {fileID: 472645016028607607}
   m_Layer: 0
   m_Name: dog
   m_TagString: Dog
@@ -241,7 +242,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ebe7af9d41161724d9a89bc307eca844, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 867857052f160244d9986e424e054ba1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -414,6 +415,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.60035574, z: 0.40344024}
   m_Center: {x: 0, y: 0.4913296, z: 1.8059622}
+--- !u!114 &472645016028607607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252388967539078859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3038d1ebcdfa08b42aa6ea5e0a3e6147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barks:
+  - {fileID: 8300000, guid: 867857052f160244d9986e424e054ba1, type: 3}
+  - {fileID: 8300000, guid: ebe7af9d41161724d9a89bc307eca844, type: 3}
+  - {fileID: 8300000, guid: f5bfccef8bca7c64baa0a82e0f0769d6, type: 3}
+  - {fileID: 8300000, guid: bb762a9cd9b10694eaf8defd6110f12e, type: 3}
+  - {fileID: 8300000, guid: ef82739b22e280b439f0027045c8f4bc, type: 3}
+  - {fileID: 8300000, guid: da06bc547aaadab479e7cac9ea4fa939, type: 3}
+  curBark: {fileID: 8300000, guid: 867857052f160244d9986e424e054ba1, type: 3}
+  myAudio: {fileID: 252388967539078848}
 --- !u!1 &252388967715237263
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class TailWag : MonoBehaviour
     
 
     public Boid GetBoid;
-    public float wagSpeed = 10f;
+    public float wagSpeed = 100f;
 
     Quaternion myRotation;
     
@@ -32,7 +32,7 @@ public class TailWag : MonoBehaviour
         transform.rotation = myRotation;
 
 
-    /*
+   /*
         public float wagSpeed;
         private float wait;
 
