@@ -83,14 +83,31 @@ public class MyState : MonoBehaviour            // The AI
 
         if (other.CompareTag("Ball") && myBall.GetComponent<BallGrab>().thrown)
         {
+            var myRB = other.GetComponent<Rigidbody>();
 
             other.transform.parent = holdPoint;
             other.transform.position = holdPoint.transform.position;
 
-            other.GetComponent<BallGrab>().thrown = false;
+            
 
+            other.GetComponent<BallGrab>().thrown = false;
+            myRB.useGravity = false;
+            
+            
         }
 
+
+    }
+
+
+    void DropBall()
+    {
+
+        myBall.transform.parent = null;
+
+        var myRB = myBall.GetComponent<Rigidbody>();
+
+        myRB.useGravity = true;
 
     }
 
@@ -100,6 +117,7 @@ public class MyState : MonoBehaviour            // The AI
     void AIDecisionTree()
     {
 
+        float dist = Vector3.Distance(transform.position,myPlayer.transform.position);
 
         if (AIOn)
         {
@@ -117,7 +135,22 @@ public class MyState : MonoBehaviour            // The AI
 
                 ChangeState(1);
 
+
+                if (dist < 7)   // if close enough drop ball
+                {
+
+                    DropBall();
+
+                }
+
+
+
             }
+
+
+
+
+
 
         }
 

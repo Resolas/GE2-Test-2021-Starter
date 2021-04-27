@@ -30,9 +30,10 @@ public class BallGrab : MonoBehaviour
 
             transform.position =  Vector3.Lerp(transform.position, gotoPoint.position, mytime * Time.deltaTime);
             transform.rotation = Quaternion.Lerp(transform.rotation,gotoPoint.rotation,mytime*2 * Time.deltaTime);
+            transform.parent = null;
             myRB.useGravity = false;
         }
-        else
+        else if (transform.parent == null && selected != true)
         {
             myRB.useGravity = true;
 
