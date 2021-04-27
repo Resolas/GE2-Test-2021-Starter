@@ -25,6 +25,7 @@ public class Boid : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+    //    myVector = GetComponent<Vector3>();
 
         SteeringBehaviour[] behaviours = GetComponents<SteeringBehaviour>();
 
@@ -90,6 +91,8 @@ public class Boid : MonoBehaviour
     }
 
 
+ //   Vector3 myVector;
+
     // Update is called once per frame
     void Update()
     {
@@ -108,5 +111,17 @@ public class Boid : MonoBehaviour
             transform.position += velocity * Time.deltaTime;
             velocity *= (1.0f - (damping * Time.deltaTime));
         }
+
+        
+        if (yAxis == true)
+        {
+
+            myVector.y = 0;
+
+        }
+        
     }
+
+
+
 }
