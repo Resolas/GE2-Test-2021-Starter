@@ -18,8 +18,9 @@ public class Boid : MonoBehaviour
     public float banking = 0.1f;
     public float maxSpeed = 5.0f;
     public float maxForce = 10.0f;
-    
 
+    [Header("Lock Axis")]
+    public bool yAxis;
 
     // Use this for initialization
     void Start()

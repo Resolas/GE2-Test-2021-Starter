@@ -15,13 +15,13 @@ public class FPSController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Cursor.visible = false;
+        Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Locked;
         if (mainCamera == null)
         {
             mainCamera = Camera.main.gameObject;
         }
-        Invoke("Activate", 2);
+        Invoke("Activate", 1);
     }
 
     void Yaw(float angle)
